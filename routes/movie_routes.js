@@ -10,8 +10,11 @@ movieRouter.use(bodyParser.urlencoded({extended: true}));
 movieRouter.get('/movies', function(req, res) {
   Movie.find({}, function(err, data) {
     if (err) throw err;
-
-    res.send(data);
+    var movieList = {
+      total: data.length,
+      movies: data
+    };
+    res.send(movieList);
   });
 });
 
