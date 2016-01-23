@@ -17,6 +17,10 @@ app.use(function(req, res) {
   res.status(404).send('could not find file');
 });
 
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
+
 app.listen(port, function() {
   console.log('Server up on port number ' + port + '.');
 });
