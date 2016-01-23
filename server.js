@@ -5,7 +5,7 @@ var Movie = require(__dirname + '/models/movie.js');
 var movieRouter = require(__dirname + '/routes/movie_routes.js');
 var port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGOLAB_URL || 'mongodb://localhost/oscar_dev');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/oscar_dev');
 
 Movie.find({}, function(err, data) {
   if(data.length === 0) {require(__dirname + '/lib/population.js');}
