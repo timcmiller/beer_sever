@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var movieSchema = new mongoose.Schema({
   title: {type: String, required: true},
   year: {type: Number, required: true},
+  nominations: Array,
   posters: {
     thumbnail: String
   }
