@@ -1,1 +1,1 @@
-Server for oscar app
+Server for beer app

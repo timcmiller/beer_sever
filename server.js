@@ -1,17 +1,17 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-var Movie = require(__dirname + '/models/movie.js');
-var movieRouter = require(__dirname + '/routes/movie_routes.js');
+var Beer = require(__dirname + '/models/beer.js');
+var beerRouter = require(__dirname + '/routes/beer_routes.js');
 var port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/oscar_dev');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beer_dev');
 
-Movie.find({}, function(err, data) {
+Beer.find({}, function(err, data) {
   if(data.length === 0) {require(__dirname + '/lib/population.js');}
 });
 
-app.use('/api', movieRouter);
+app.use('/api', beerRouter);
 
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/index.html');
