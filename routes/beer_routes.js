@@ -10,7 +10,11 @@ beerRouter.use(bodyParser.urlencoded({extended: true}));
 beerRouter.get('/beers', function(req, res) {
   Beer.find({}, function(err, data) {
     if (err) throw err;
-    res.send(data);
+    var beerList = {
+      total: data.length,
+      beers: data
+    };
+    res.send(beerList);
   });
 });
 
